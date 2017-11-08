@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<h1>User Data</h1>
+<form [formGroup]="userForm">
+  <label>
+    Enter a username:
+    <input type="text" [formControlName]="'username'">
+  </label>
+</form>
+<button (click)="fetch(username)" [disabled]="errorsExist">Fetch data</button>
+
+<div *ngIf="errorsExist">
+  Please input a real username.
+</div>
+
+<div *ngIf="data">
+  {{data | json}}
+</div>
