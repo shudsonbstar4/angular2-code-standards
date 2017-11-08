@@ -27,7 +27,6 @@ export class FormComponent implements OnInit {
   submit() {
     this.displayErrors = this.formService.validateInput(this.form);
     if (this.displayErrors) { return };
-    console.log(this.form.controls.username.value);
     this.submitted.emit(this.form.controls.username.value);
   }
 

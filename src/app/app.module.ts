@@ -6,10 +6,10 @@ import { HttpModule } from '@angular/http';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { AppComponent } from './app.component';
-import { UserService } from './user.service';
-import { DataTableComponent } from './data-table/data-table.component';
-import { FormComponent } from './form/form.component';
-import { FormService } from './form/form.service';
+import { UserService } from './services/user.service';
+import { DataTableComponent } from './components/data-table/data-table.component';
+import { FormComponent } from './components/form/form.component';
+import { FormService } from './components/form/form.service';
 
 @NgModule({
   declarations: [
