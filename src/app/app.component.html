@@ -1,16 +1,3 @@
-<h1>User Data: SRP Antipattern</h1>
-<form [formGroup]="userForm">
-  <label>
-    Enter a username:
-    <input type="text" [formControlName]="'username'">
-  </label>
-</form>
-<button (click)="fetch()" [disabled]="errorsExist">Fetch data</button>
-
-<div *ngIf="errorsExist">
-  Please input a real username.
-</div>
-
-<div *ngIf="data">
-  {{data | json}}
-</div>
+<h1>User Data: SRP Pattern</h1>
+<app-form [form]="userForm" (submitted)="fetch($event)"></app-form>
+<app-data-table [data]="data"></app-data-table>

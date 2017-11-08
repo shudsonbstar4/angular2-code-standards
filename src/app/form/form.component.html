@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label>
+    Enter a username:
+    <input type="text" [formControlName]="'username'">
+  </label>
+  <button type="submit" [disabled]="displayErrors">Fetch data</button>
+</form>
+<div *ngIf="displayErrors">
+  Please input a real username.
+</div>
