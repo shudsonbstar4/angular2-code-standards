@@ -7,10 +7,16 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserService } from './services/user.service';
+import { DataTableComponent } from './components/data-table/data-table.component';
+import { FormComponent } from './components/form/form.component';
+import { FormService } from './components/form/form.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DataTableComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +27,10 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    FormService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,8 @@
+<div *ngIf="data">
+  <h2>Repos</h2>
+  <ul>
+    <li *ngFor="let item of data | async">
+      {{item.name}}
+    </li>
+  </ul>
+</div>
