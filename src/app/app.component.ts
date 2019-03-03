@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Http } from '@angular/http';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,9 @@ export class AppComponent implements OnInit {
   userForm: FormGroup = new FormGroup({ username: new FormControl('')});
 
   constructor(
-    public toastr: ToastsManager,
-    private http: Http,
-    vcr: ViewContainerRef
-  ) {
-      this.toastr.setRootViewContainerRef(vcr);
-  }
+    private http: HttpClient,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.userForm.controls.username.valueChanges.subscribe(
@@ -49,7 +47,7 @@ export class AppComponent implements OnInit {
     this.http.get(`https://api.github.com/users/${user}`)
       .subscribe(
         response => {
-          this.data = response.json();
+          this.data = response;
           console.log('data', this.data);
           this.showSuccess();
         },
